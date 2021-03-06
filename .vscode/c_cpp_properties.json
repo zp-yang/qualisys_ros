@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/zpyang/git/ros-px4/devel/include/**",
+        "/home/zpyang/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/zpyang/git/ros-px4/src/fixedwing_gazebo/include/**",
+        "/home/zpyang/catkin_ws/src/mavros/libmavconn/include/**",
+        "/home/zpyang/git/ros-px4/src/mavlink_sitl_gazebo/include/**",
+        "/home/zpyang/catkin_ws/src/mavros/mavros/include/**",
+        "/home/zpyang/catkin_ws/src/mavros/mavros_msgs/include/**",
+        "/home/zpyang/git/ros-px4/src/qualisys_ros/include/**",
+        "/home/zpyang/catkin_ws/src/mavros/test_mavros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
