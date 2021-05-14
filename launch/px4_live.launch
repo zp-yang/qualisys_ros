@@ -1,8 +1,9 @@
 <launch>
   <arg name="server" default="127.0.0.1"/>
-  <arg name="rate_limit" default="100"/>
+  <arg name="rate_limit" default="10"/>
   <arg name="object" default='cf1'/>
 
+  <node pkg="topic_tools" type="relay" name="relay" output="screen" args="/qualisys/$(arg object)/odom /mavros/odometry/out"/>
 
   <node pkg="qualisys" type="node" name="qualisys" output="screen">
     <param name="server" value="$(arg server)"/>
@@ -37,14 +38,10 @@
 	</node>
 
   <node pkg="tf2_ros" type="static_transform_publisher" name="object_base_link" args="0 0 0 0 0 0 $(arg object) base_link"/>
-  <node pkg="tf2_ros" type="static_transform_publisher" name="qualisys_map" args="0 0 0 0 0 0 map qualisys"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="qualisys_map" args="0 0 0 1.5707 0 0 map qualisys"/>
   <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom" args="0 0 0 0 0 0 map odom"/>
 
-  <node pkg="topic_tools" type="relay" name="relay" output="screen" args="/qualisys/$(arg object)/odom /mavros/odometry/out"/>
-
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find qualisys)/launch/qualisys.rviz"/>
-
-
 
   <node name="record" pkg="rosbag" type="record" args="record -o $(arg object)_pose /qualisys/$(arg object)/pose"/>
 </launch>

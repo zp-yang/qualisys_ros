@@ -3,4 +3,6 @@ plugin_blacklist: []
 plugin_whitelist:
 - odom 
 - sys_status
-
+- command
+- 'setpoint_*'
+- actuator_control
